@@ -36,7 +36,7 @@ public class MobileAuthService implements MobileAuthPortIn {
 
             if (googleIdToken == null) {
                 log.error("Token do Google inválido");
-                throw new AuthenticationException("Token do Google inválido ou expirado");
+                throw new GlobalExceptionHandler.AuthenticationException("Token do Google inválido ou expirado");
             }
 
             GoogleIdToken.Payload payload = googleIdToken.getPayload();
