@@ -1,6 +1,6 @@
-package br.com.devluisoliveira.quiz_biblico_back.shared.config;
+package br.com.devluisoliveira.quiz_biblico_back.shared.config.security;
 
-import br.com.devluisoliveira.quiz_biblico_back.core.models.User;
+import br.com.devluisoliveira.quiz_biblico_back.core.domain.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -33,6 +33,8 @@ public class JwtTokenUtil {
         Map<String, Object> claims = new HashMap<>();
         claims.put("id", user.getId());
         claims.put("email", user.getEmail());
+        claims.put("name", user.getName());
+        claims.put("googleId", user.getGoogleId());
 
         return createToken(claims, user.getEmail());
     }
